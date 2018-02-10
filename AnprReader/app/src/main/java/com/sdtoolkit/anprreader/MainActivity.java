@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
                                  RecognitionParams currentRecognitionParams) {
             // Recognition parameters currently set in the ANPR Service
             // This application does not modify any parameters and just update local copy
+            if (result != AnprErrors.SUCCESS) {
+                return;
+            }
+
             mDeviceParams.copyFrom(currentDeviceParams);
             mRecognitionParams.copyFrom(currentRecognitionParams);
 
