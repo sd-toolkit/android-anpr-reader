@@ -1,7 +1,7 @@
 # ANPR Reader for Android
 
 The Aronym ANPR is formed from term "Automatic Number Plate Recognition". Another name of this tecthnology is "License Plate Recognition" (LPR). 
-This project contains sources of the application which reads vehicle license plate from android camera device video stream of high resolution jpeg.
+This project contains sources of the application which reads vehicle license plate from android camera device video stream or high resolution jpeg image.
 
 The diagram below demonstrates SDK components accessed by SD-TOOLKIT ANPR SDK.
 
