@@ -24,6 +24,7 @@ import com.sdtoolkit.anpr.api.DeviceParams;
 import com.sdtoolkit.anpr.api.IAnprEngine;
 import com.sdtoolkit.anpr.api.IAnprEngineListener;
 import com.sdtoolkit.anpr.api.RecognitionParams;
+import com.sdtoolkit.anpr.view.CameraView;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mButStop;
     private Button mButConfigure;
     private TextView mTextResults;
+    private CameraView mCameraView;
 
     private IAnprEngine mAnprEngine;
     private DeviceParams mDeviceParams = new DeviceParams();
@@ -124,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
             dialog.show();
 
         }
+
+        mCameraView = findViewById(R.id.preview_wnd);
 
         mButStart = findViewById(R.id.but_start);
         mButStart.setOnClickListener(new View.OnClickListener() {
