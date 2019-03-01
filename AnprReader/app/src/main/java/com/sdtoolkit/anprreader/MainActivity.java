@@ -267,7 +267,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 for (AnprResult result : results) {
-                    mTextResults.append(result.getPlate() + "\r\n");
+                    // Insert in front
+                    mTextResults.setText(result.getPlate() + "\r\n" + mTextResults.getText());
                 }
             }
         });
