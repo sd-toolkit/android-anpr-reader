@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mButStop;
     private Button mButConfigure;
     private TextView mTextResults;
+    private Switch mSwitchShowLowConfidence;
     private CameraView mCameraView;
 
     private IAnprEngine mAnprEngine;
@@ -154,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mTextResults = findViewById(R.id.text_results);
+        mSwitchShowLowConfidence = findViewById(R.id.switch_show_low_confidence);
 
         // Create Anpr Engine instance
         mAnprEngine = AnprEngineFactory.createAnprEngine(this);
@@ -267,8 +270,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 for (AnprResult result : results) {
-                    // Insert in front
-                    mTextResults.setText(result.getPlate() + "\r\n" + mTextResults.getText());
+                    if (mSwitchShowLowConfidence == null || mSwitchShowLowConfidence.isChecked()) {
+                        // Insert in front
+                        String newResults = String.format("%s [%s] (%.3f)\r\n",
+                                result.getPlate(), result.getCountry(), result.getConfidence());
+                        mTextResults.setText(newResults + mTextResults.getText());
+                    }
                 }
             }
         });

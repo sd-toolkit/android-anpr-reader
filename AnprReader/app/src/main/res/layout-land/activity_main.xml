@@ -6,11 +6,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.sdtoolkit.anpr.view.CameraView
-        android:id="@+id/preview_wnd"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <com.sdtoolkit.anpr.view.CameraView
+            android:id="@+id/preview_wnd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Switch
+            android:id="@+id/switch_show_low_confidence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            android:text="@string/show_low_confidence_label" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/text_results"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </ScrollView>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -39,16 +64,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/text_results"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-        </ScrollView>
     </LinearLayout>
 
 </LinearLayout>
